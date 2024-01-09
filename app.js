@@ -27,8 +27,10 @@ app.use("/api/v1", user);
 app.use("/api/v1", order);
 app.use("/api/v1", payment);
 
-app.use(express.static(path.resolve(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
 // 
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
+
 // this line we add to make react router work in case of other routes doesnt match
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
